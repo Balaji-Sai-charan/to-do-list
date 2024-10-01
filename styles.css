@@ -1,0 +1,79 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 500px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+}
+
+input[type="text"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.task-box {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space between items */
+    align-items: center; /* Center items vertically */
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.task-box.red {
+    background-color: #f8d7da; /* Light red */
+}
+
+.task-box.green {
+    background-color: #d4edda; /* Light green */
+}
+
+.task-box input[type="checkbox"] {
+    margin-right: 10px; /* Space between checkbox and text */
+}
+
+.task-box button.delete-btn {
+    background-color: #dc3545; /* Red */
+    color: white; /* Text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 5px 5px; /* Smaller padding */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+/* Ensure the delete button does not stretch */
+.task-box button.delete-btn {
+   width: auto; /* Allow the width to be determined by content */
+   margin-left: auto; /* Push it to the right end of the box */
+}

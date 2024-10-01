@@ -1,40 +1,30 @@
-document.getElementById('addTaskBtn').addEventListener('click', function() {
-    const taskInput = document.getElementById('taskInput');
-    
-    if (taskInput.value.trim() !== '') {
-        const li = document.createElement('li');
-        li.classList.add('task-box', 'red');
+document.addEventListener('DOMContentLoaded', () => {
+  const addButton = document.getElementById('add-btn');
+  const todoInput = document.getElementById('todo-input');
+  const todoList = document.getElementById('todo-list');
 
-        const checkbox = document.createElement('input');
-        checkbox.type = 'checkbox';
-        checkbox.addEventListener('change', function() {
-            if (this.checked) {
-                li.classList.remove('red');
-                li.classList.add('green');
-            } else {
-                li.classList.remove('green');
-                li.classList.add('red');
-            }
-        });
-
-        const taskText = document.createElement('span');
-        taskText.textContent = taskInput.value;
-
-        const deleteBtn = document.createElement('button');
-        deleteBtn.textContent = 'Delete';
-        deleteBtn.addEventListener('click', function() {
-            li.remove();
-        });
-
-        li.appendChild(checkbox);
-        li.appendChild(taskText);
-        li.appendChild(deleteBtn);
-        
-        document.getElementById('taskList').appendChild(li);
-
-        taskInput.value = ''; // Clear the input
-        taskInput.focus(); // Focus back on the input
-    } else {
-        alert('Please enter a task!');
+  // Add new todo item
+  addButton.addEventListener('click', () => {
+    const task = todoInput.value.trim();
+    if (task !== "") {
+      addTodoItem(task);
+      todoInput.value = "";
     }
+  });
+
+  // Function to add new item to the list
+  function addTodoItem(task) {
+    const li = document.createElement('li');
+    li.innerHTML = `
+      ${task}
+      <button class="delete-btn">Delete</button>
+    `;
+    
+    // Add delete functionality
+    li.querySelector('.delete-btn').addEventListener('click', () => {
+      li.remove();
+    });
+
+    todoList.appendChild(li);
+  }
 });
